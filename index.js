@@ -5,12 +5,12 @@ const ImportExport = require("./lib/ImportExport");
 const QuestionAnswer = require("./lib/QuestionAnswer");
 class CustomerService
 {
-	constructor(namespace='mylang')
+	constructor(namespace='mylang',minContinue=1, maxContinue=13)
 	{
 		this.namespace = namespace;
 		this.dbPath = path.join(__dirname,'data',namespace);
 		this.db = level(this.dbPath);
-		this.splitWord = new SplitWord(this.db);
+		this.splitWord = new SplitWord(this.db,minContinue,maxContinue);
 		this.importExport = new ImportExport(this.db,this.splitWord);
 		this.questionAnswer = new QuestionAnswer(this.db,this.splitWord);
 	}
