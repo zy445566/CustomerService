@@ -250,12 +250,12 @@ qa.getAnswer('你是屌丝吗')
 <a name="api"></a>
 API
 -------------------------
-  * <a href="#customer-service">CustomerService</a>
-  * <a href="#split-word">SplitWord</a>
-  * <a href="#import-export">ImportExport</a>
-  * <a href="#question-answer">QuestionAnswer</a>
+  * <a href="#customer-service-api">CustomerService</a>
+  * <a href="#split-word-api">SplitWord</a>
+  * <a href="#import-export-api">ImportExport</a>
+  * <a href="#question-answer-api">QuestionAnswer</a>
 
-  <a name="customer-service"></a>
+  <a name="customer-service-api"></a>
   ### CustomerService
   -------------------------
 
@@ -290,7 +290,7 @@ API
   >>* Description  获取提问回答工具
   >>* Param empty
 
-  <a name="split-word"></a>
+  <a name="split-word-api"></a>
   ### SplitWord
   -------------------------
   >FunctionName  sentenceToList
@@ -320,7 +320,8 @@ API
   ------------|------|--------|-----------|------------
   sentence   |string|must  |empty   |要去除符号的句子
 
-  <a name="import-export"></a>
+  ------------------
+  <a name="import-export-api"></a>
   ### ImportExport
   -------------------------
   >FunctionName  getData
@@ -339,7 +340,7 @@ API
   * `'gt'` (greater than), `'gte'` (greater than or equal) define the lower bound of the range to be streamed. Only records where the key is greater than (or equal to) this option will be included in the range. When `reverse=true` the order will be reversed, but the records streamed will be the same.
 
   * `'lt'` (less than), `'lte'` (less than or equal) define the higher bound of the range to be streamed. Only key/value pairs where the key is less than (or equal to) this option will be included in the range. When `reverse=true` the order will be reversed, but the records streamed will be the same.
-    
+
   * `'start', 'end'` legacy ranges - instead use `'gte', 'lte'`
 
   * `'reverse'` *(boolean, default: `false`)*: a boolean, set true and the stream output will be reversed. Beware that due to the way LevelDB works, a reverse seek will be slower than a forward seek.
@@ -353,7 +354,7 @@ API
   * `'fillCache'` *(boolean, default: `false`)*: whether LevelDB's LRU-cache should be filled with data read.
 
   * `'keyEncoding'` / `'valueEncoding'` *(string)*: the encoding applied to each read piece of data.
-  
+
   -------------------------
   >FunctionName  readWordToLevel
   >>* Return  <Promise>true
@@ -376,7 +377,8 @@ API
   chunk   |string|must  |empty   |要导入的字符串
   type    |string|option  |'word'   |词使用'word',提问回答使用'qa'
 
-  <a name="question-answer"></a>
+  -------------------
+  <a name="question-answer-api"></a>
   ### QuestionAnswer
   -------------------------
   >FunctionName  getQuestionList
@@ -397,4 +399,3 @@ API
   name        | type |require |default    |Description
   ------------|------|--------|-----------|------------
   questionQuery   |string|must  |empty   |提问的语句
-
